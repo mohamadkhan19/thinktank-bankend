@@ -30,3 +30,21 @@ redshift.query(statement, {raw: true}, function(err, data){
   }
 });
 };
+
+var statement1 = 'select count(*) from customer_orders';
+
+exports.count = function(req, res){
+
+redshift.query(statement1, {raw: true}, function(err, data){
+  if(err) 
+    console.log("Error getting countd : %s ",err );
+  else{
+    console.log(data);
+    res.status(200).json({
+                message: 'Success',
+                Success: 1,
+                object: data
+                });
+  }
+});
+};

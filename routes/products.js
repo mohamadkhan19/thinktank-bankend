@@ -2,7 +2,7 @@ var Redshift = require('node-redshift');
 var client = require('../client');
 var redshift = new Redshift(client);
 
-var statement = 'select count(*) from products'
+var statement = 'select count(*) from products limit 10'
 
 exports.count = function(req, res){
 
